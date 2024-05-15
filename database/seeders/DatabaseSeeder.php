@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             ThemeSeeder::class,
             CategorySeeder::class,
             CourseSeeder::class,
-            LessonSeeder::class,
             UserProgressionSeeder::class,
             MediaLessonSeeder::class,
         ]);

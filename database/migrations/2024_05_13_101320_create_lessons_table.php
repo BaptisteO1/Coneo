@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 250);
             $table->string('slug', 250)->unique();
             $table->string('excerpt');
-            $table->text('contain');
+            $table->text('content');
             $table->integer('order');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();

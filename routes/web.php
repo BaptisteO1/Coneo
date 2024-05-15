@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CourseController::class, 'index'])->name('index');
+Route::get('/lesson/{lesson}', [LessonController::class, 'show'])->name('pages.lesson');

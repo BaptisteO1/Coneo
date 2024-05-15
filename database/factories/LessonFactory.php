@@ -19,7 +19,7 @@ class LessonFactory extends Factory
     public function definition(): array
     {
         $title = fake()->unique()->sentence();
-        $contain = fake()->paragraphs(4, true);
+        $content = fake()->paragraphs(4, true);
         $date = fake()->dateTimeBetween('-1 year');
 
         // Récupérer un cours aléatoire
@@ -35,8 +35,8 @@ class LessonFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'excerpt' => Str::limit($contain, 100),
-            'contain' => $contain,
+            'excerpt' => Str::limit($content, 100),
+            'content' => $content,
             'order' => fake()->numberBetween(1, 4),
             'course_id' => $course->id,
             'created_at' => $date,

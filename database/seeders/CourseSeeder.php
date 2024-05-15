@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Course;
+use App\Models\{Course, Lesson};
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +13,17 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        Course::Factory(10)->create();
+        for ($i=0; $i < 10; $i++) { 
+            $course = Course::factory()->create();
+            # code...
+            for ($j=1; $j < random_int(2,5); $j++) { 
+                # code...
+                Lesson::factory()->create(
+                    [
+                        'order' => $j,
+                        "course_id" => $course->id                    ]
+                );
+            }
+        }
     }
 }
