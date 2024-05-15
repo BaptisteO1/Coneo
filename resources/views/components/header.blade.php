@@ -1,24 +1,25 @@
 {{-- Header --}}
 <header class="flex justify-between items-center space-x-5 text-slate-900">
     {{-- Logo --}}
-    <a href="{{ route('index') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-        </svg>
+    <a href="{{ route('home') }}">
+        <img
+            class="w-auto animate-wiggle"
+            src="/images/logo_coneo_black_and_green.svg"
+            alt="logo_coneo_black_and_green"
+        />
     </a>
     {{-- Navigation --}}
     <div x-data="{ open: false }" x-cloak class="relative">
         <ul class="hidden md:flex space-x-12 font-semibold">
-            <li><a href="">Accueil</a></li>
+            <li><a href="{{ route('home') }}">Accueil</a></li>
             <li><a href="">Nos offres</a></li>
-            <li><a href="">Les modules</a></li>
+            <li><a href="{{ route('pages.courses', ['course']) }}">Nos cours</a></li>
             <li><a href="">A propos</a></li>
             <li><a href="">Contact</a></li>
-
         </ul>
     </div>
     {{-- Formulaire de recherche --}}
-    {{-- <form action="{{ route('index') }}" class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
+    {{-- <form action="{{ route('home') }}" class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
         <input id="search" value="" class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search" placeholder="Rechercher un article">
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">

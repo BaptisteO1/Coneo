@@ -15,4 +15,9 @@ class Course extends Model
     public function firstLesson() {
         return $this->hasOne(Lesson::class)->ofMany('order', 'min');
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }

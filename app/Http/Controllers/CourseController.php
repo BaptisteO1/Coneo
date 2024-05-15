@@ -9,7 +9,7 @@ use Illuminate\View\View;
 
 class CourseController extends Controller
 {
-    public function index(): View { 
+    public function show(): View { 
         return view('pages.courses', [
             'courses' => Course::latest()->paginate(4),
         ]);
