@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('media_type');
             $table->string('url');
             $table->text('description');
-            $table->timestamps(); 
         });
     }
 
