@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use \App\Models\Theme;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ThemeSeeder extends Seeder
 {
@@ -13,16 +14,11 @@ class ThemeSeeder extends Seeder
      */
     public function run(): void
     {
-        Theme::create([
-            'name' => 'Theme 1',
-            'slug' => 'theme-1',
-            'thumbnail' => 'image 1',
-        ]);
+        $themes = collect(['Logement', 'Emploi', 'Gestion Financière', 'Assurances', 'Impôts', 'Vie Quotidienne', 'Relations interpersonnelles', 'Bien-être', 'Scolarité',  'Aides']);
 
-        Theme::create([
-            'name' => 'Theme 2',
-            'slug' => 'theme-2',
-            'thumbnail' => 'image 2',
-        ]);
+        $themes->each(fn ($theme) => Theme::create([
+            'name' => $theme,
+            'slug' => Str::slug($theme),
+        ]));
     }
 }

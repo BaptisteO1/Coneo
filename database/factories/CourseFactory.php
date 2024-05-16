@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
+use App\Models\Theme;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,15 +22,15 @@ class CourseFactory extends Factory
         $description = fake()->text();
         $date = fake()->dateTimeBetween('-1 year');
         // Sélectionner une catégorie existante
-        $category = Category::inRandomOrder()->first();
+        $theme = Theme::inRandomOrder()->first();
 
         return [
             'title' => $title,
+            'theme_id' => $theme->id,
             'slug' => Str::slug($title),
             'thumbnail' => fake()->imageUrl(),
             'excerpt' => Str::limit($description, 100),
             'description' => $description,
-            'category_id' => $category->id,
             'created_at' => $date,
             'updated_at' => $date,
         ];

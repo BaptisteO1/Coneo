@@ -9,7 +9,9 @@
                 <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ $course->thumbnail }}">
             </div>
             <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
-                <a href="" class="underline font-bold text-slate-900 text-lg">Catégorie</a>
+                @if ($course->theme)
+                    <a href="" class="underline font-bold text-slate-900 text-lg">{{ $course->theme->name}}</a>
+                @endif
                 <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $course->title }}</h1>
                 <ul class="flex flex-wrap gap-2">
                     <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 1</a></li>

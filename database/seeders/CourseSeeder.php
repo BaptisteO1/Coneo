@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\{Course, Lesson};
+use App\Models\{Course, Theme, Lesson};
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +13,15 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i=0; $i < 10; $i++) { 
-            $course = Course::factory()->create();
-            # code...
+        $themes = Theme::all();
+            
+        for ($i=0; $i < 20; $i++) { 
+            $course = Course::factory()
+                ->sequence(fn () => [
+                    'theme_id' => $themes->random(),
+                ])
+                ->create();
             for ($j=1; $j < random_int(2,5); $j++) { 
-                # code...
                 Lesson::factory()->create(
                     [
                         'order' => $j,

@@ -13,6 +13,6 @@ class LessonSeeder extends Seeder
      */
     public function run(): void
     {
-        Lesson::Factory(10)->create();
+        Lesson::Factory(20)->create();
     }
 }
