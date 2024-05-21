@@ -5,15 +5,15 @@ namespace App\Models;
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Theme extends Model
+class Tag extends Model
 {
     use HasFactory;
 
-    public function course(): HasMany 
+    public function courses(): BelongsToMany
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Courses::class);
     }
 
     public $timestamps = false;
