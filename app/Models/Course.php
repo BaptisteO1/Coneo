@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Theme;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,6 +22,28 @@ class Course extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function scopeFilters(Builder $query, array $filters): void
+    {
+        if (isset($filters['search'])) {
+            $query->where(fn (Builder $query) => $query
+                ->where('title', 'LIKE', '%' . $filters['search'] . '%')
+                ->orWhere('description', 'LIKE', '%' . $filters['search'] . '%')
+            );
+        }
+
+        if (isset($filters['theme'])) {
+            $query->where(
+                'theme_id', $filters['theme']->id ?? $filters['theme']
+            );
+        }
+
+        if (isset($filters['tag'])) {
+            $query->whereHas('tags', function (Builder $query) use ($filters) {
+                $query->where('tags.id', $filters['tag']->id ?? $filters['tag']);
+            });
+        }
     }
 
      /**

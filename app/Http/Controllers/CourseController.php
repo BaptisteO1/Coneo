@@ -12,34 +12,30 @@ use Illuminate\View\View;
 
 class CourseController extends Controller
 {
+
     public function show(Request $request): View { 
 
-        $courses = Course::query();
+       $search = $request->search;
+       
+       return $this->coursesView($request->$search ? ['search' => $request->$search] : []);
 
-        if ($search = $request->search) {
-            $courses->where(fn (Builder $query) => $query
-                ->where('title', 'LIKE', '%' . $search . '%')
-                ->orWhere('description', 'LIKE', '%' . $search . '%')
-            );
-        }
-
-        return view('pages.courses', [
-            'courses' => $courses->latest()->paginate(4),
-        ]);
     }
 
     public function coursesByTheme(Theme $theme): View {
-        return view('pages.courses', [
-            'courses' => Course::where('theme_id', $theme->id)->latest()->paginate(4),
-        ]);
+
+         return $this->coursesView(['theme' => $theme]);
+
     }
 
     public function coursesByTag(Tag $tag): View
     {
+        return $this->coursesView(['tag' => $tag]);
+    }
+
+    protected function coursesView(array $filters): View
+    {
         return view('pages.courses', [
-            'courses' => Course::whereHas('tags', function ($query) use ($tag) {
-                $query->where('tags.id', $tag->id);
-            })->latest()->paginate(4),
+            'courses' => Course::filters($filters)->latest()->paginate(4),
         ]);
     }
 }
