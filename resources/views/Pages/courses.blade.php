@@ -10,7 +10,7 @@
             </div>
             <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
                 @if ($course->theme)
-                    <a href="" class="underline font-bold text-slate-900 text-lg">{{ $course->theme->name}}</a>
+                    <a href="{{ route('courses.byTheme', ['theme' => $course->theme]) }}" class="underline font-bold text-slate-900 text-lg">{{ $course->theme->name}}</a>
                 @endif
                 <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $course->title }}</h1>
                 @if ($course->tags->isNotEmpty())

@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.home')->name('home');
 
 Route::get('/course/{course}', [CourseController::class, 'show'])->name('pages.courses');
+Route::get('/themes/{theme}', [CourseController::class, 'coursesByTheme'])->name('courses.byTheme');
 Route::get('/lesson/{lesson}', [LessonController::class, 'show'])->name('pages.lesson');

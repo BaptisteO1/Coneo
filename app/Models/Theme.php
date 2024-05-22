@@ -11,6 +11,11 @@ class Theme extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function course(): HasMany 
     {
         return $this->hasMany(Course::class);
