@@ -16,7 +16,7 @@
                 @if ($course->tags->isNotEmpty())
                 <ul class="flex flex-wrap gap-2">
                     @foreach ($course->tags as $tag)
-                    <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name }}</a></li>
+                    <li><a href="{{ route('courses.byTag', ['tag' => $tag]) }}" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name }}</a></li>
                     @endforeach
                 </ul>
                 @endif

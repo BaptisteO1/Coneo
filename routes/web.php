@@ -20,4 +20,5 @@ Route::view('/', 'pages.home')->name('home');
 
 Route::get('/course/{course}', [CourseController::class, 'show'])->name('pages.courses');
 Route::get('/themes/{theme}', [CourseController::class, 'coursesByTheme'])->name('courses.byTheme');
+Route::get('/tag/{tag}', [CourseController::class, 'coursesByTag'])->name('courses.byTag');
 Route::get('/lesson/{lesson}', [LessonController::class, 'show'])->name('pages.lesson');

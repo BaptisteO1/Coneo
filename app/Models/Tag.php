@@ -11,6 +11,11 @@ class Tag extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function courses(): BelongsToMany
     {
         return $this->belongsToMany(Courses::class);
