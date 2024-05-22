@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="space-y-10 md:space-y-16">
-        @foreach ($courses as $course)
+        @forelse ($courses as $course)
         {{-- Début du cours --}}
         <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
             <div class="lg:w-5/12">
@@ -31,8 +31,11 @@
                 </a>
             </div>
         </article>
+
+        @empty
+        <p class="text-slate-400 text-center">Aucun résultat.</p>
         {{-- Fin du cours --}}
-        @endforeach
+        @endforelse
 
         {{ $courses->links() }}
     </div>

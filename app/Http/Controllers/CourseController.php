@@ -6,14 +6,25 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Theme;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CourseController extends Controller
 {
-    public function show(): View { 
+    public function show(Request $request): View { 
+
+        $courses = Course::query();
+
+        if ($search = $request->search) {
+            $courses->where(fn (Builder $query) => $query
+                ->where('title', 'LIKE', '%' . $search . '%')
+                ->orWhere('description', 'LIKE', '%' . $search . '%')
+            );
+        }
+
         return view('pages.courses', [
-            'courses' => Course::latest()->paginate(4),
+            'courses' => $courses->latest()->paginate(4),
         ]);
     }
 
