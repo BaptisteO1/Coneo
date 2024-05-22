@@ -14,7 +14,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <x-header />
 
-        <main class="my-10 md:my-12 lg:my-16">
+        <main class="mx-6 md:mx-12 my-10 md:my-12 lg:my-16">
             @yield('content')
         </main>
 

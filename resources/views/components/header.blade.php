@@ -1,5 +1,5 @@
 {{-- Header --}}
-<header class="flex justify-between items-center space-x-5 text-slate-900">
+<header class="flex justify-between items-center space-x-5 text-slate-900 dark:text-white">
     {{-- Logo --}}
     <a href="{{ route('home') }}">
         <img
@@ -10,12 +10,12 @@
     </a>
     {{-- Navigation --}}
     <div x-data="{ open: false }" x-cloak class="relative">
-        <ul class="hidden md:flex space-x-12 font-semibold">
-            <li><a href="{{ route('home') }}">Accueil</a></li>
-            <li><a href="">Nos offres</a></li>
-            <li><a href="{{ route('pages.courses', ['course']) }}">Nos cours</a></li>
-            <li><a href="">A propos</a></li>
-            <li><a href="">Contact</a></li>
+        <ul class="hidden md:flex space-x-12 font-semibold items-center text-center">
+            <li><a class="hover:text-green-300" href="{{ route('home') }}">Accueil</a></li>
+            <li><a class="hover:text-green-300" href="">Nos offres</a></li>
+            <li><a class="hover:text-green-300" href="{{ route('pages.courses', ['course']) }}">Nos cours</a></li>
+            <li><a class="hover:text-green-300" href="">A propos</a></li>
+            <li><a class="hover:text-green-300" href="">Contact</a></li>
         </ul>
     </div>
     {{-- Formulaire de recherche --}}
