@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="space-y-10 md:space-y-16">
+    <div class="space-y-10 md:space-y-16 mx-6 md:mx-12 mt-24 mb-10">
         {{-- Début de la lesson --}}
         <article class="flex-center lg:flex-row pb-10 md:pb-16 border-b">
             <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">

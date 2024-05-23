@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="space-y-10 md:space-y-16">
+    <div class="space-y-10 md:space-y-16 mx-6 md:mx-12 mt-24 mb-10">
         @forelse ($courses as $course)
         {{-- Début du cours --}}
         <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">

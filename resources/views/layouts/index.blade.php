@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }} " class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }} " class="dark_">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +8,11 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="antialiased pt-10 dark:bg-black dark:text-white">
-    
+<body class="antialiased dark:bg-black dark:text-white">
+    <x-header />
+
     {{-- Conteneur global --}}
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <x-header />
-
-        <main class="mx-6 md:mx-12 my-10 md:my-12 lg:my-16">
-            @yield('content')
-        </main>
-
-    </div>
+    @yield('content')
 
     <x-footer/>
 </body>
