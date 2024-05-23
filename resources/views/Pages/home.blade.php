@@ -1,9 +1,7 @@
-@extends('layouts.index')
-
-@section('content')
+<x-layout title="Page d'accueil">
     
     <x-home.hero />
     <x-home.feature-one />
     <x-home.feature-two />
 
-@endsection()
+</x-layout>
