@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 
 use Illuminate\Support\Facades\Route;
@@ -18,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
-Route::view('/', 'pages.home')->name('home');
+Route::get('/home', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+Route::view('/', 'pages.home')->name('pages.home');
 
 Route::get('/course/{course}', [CourseController::class, 'show'])->name('pages.courses');
 Route::get('/themes/{theme}', [CourseController::class, 'coursesByTheme'])->name('courses.byTheme');

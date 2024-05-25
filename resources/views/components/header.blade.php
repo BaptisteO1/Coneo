@@ -1,7 +1,7 @@
 {{-- Header --}}
 <header class="flex justify-between items-center space-x-5 text-slate-900 dark:text-white py-4 px-10 md:px-24 fixed left-0 right-0 top-0 z-40 backdrop-blur-xl">
     {{-- Logo --}}
-    <a href="{{ route('home') }}">
+    <a href="{{ route('pages.home') }}">
         <img
             class="w-auto animate-wiggle"
             src="/images/logo_coneo_black_and_green.svg"
@@ -11,7 +11,7 @@
     {{-- Navigation --}}
     <div x-data="{ open: false }" x-cloak class="relative">
         <ul class="hidden lg:flex space-x-12 font-semibold items-center text-center">
-            <li><a class="hover:text-green-300" href="{{ route('home') }}">Accueil</a></li>
+            <li><a class="hover:text-green-300" href="{{ route('pages.home') }}">Accueil</a></li>
             <li><a class="hover:text-green-300" href="">Nos offres</a></li>
             <li><a class="hover:text-green-300" href="{{ route('pages.courses', ['course']) }}">Nos cours</a></li>
             <li><a class="hover:text-green-300" href="">A propos</a></li>
