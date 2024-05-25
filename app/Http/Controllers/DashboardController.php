@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
@@ -11,7 +12,7 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function dashboard()
+    public function dashboard(): View
     {
         return view('pages.dashboard');
     }
