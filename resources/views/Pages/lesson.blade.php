@@ -4,12 +4,7 @@
         {{-- Début de la lesson --}}
         <article class="flex-center lg:flex-row pb-10 md:pb-16 border-b">
             <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
-                <a href="" class="underline font-bold text-slate-900 text-lg">Catégorie</a>
                 <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $lesson->title }}</h1>
-                <ul class="flex flex-wrap gap-2">
-                    <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 1</a></li>
-                    <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 2</a></li>
-                </ul>
                 <p class="text-xl lg:text-2xl text-slate-600">
                     {!! nl2br(e($lesson->content)) !!}
                 </p>
@@ -17,6 +12,22 @@
             </div>
         </article>
         {{-- Fin de la lesson --}}
+
+        <div class="mt-5 flex justify-center gap-10">
+            @if($previousLesson)
+                <a href="{{ route('pages.lesson', ['lesson' => $previousLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-green-300">
+                    Leçon précédente
+                </a>
+            @else
+                <span></span>
+            @endif
+            
+            @if($nextLesson)
+                <a href="{{ route('pages.lesson', ['lesson' => $nextLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-green-300">
+                    Leçon suivante
+                </a>
+            @endif
+        </div>
     </div>
 
 </x-default-layout>
