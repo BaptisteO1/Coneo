@@ -1,4 +1,4 @@
-<x-layout title="Cours">
+<x-default-layout title="Cours">
 
     <div class="space-y-10 md:space-y-16 mx-6 md:mx-12 mt-24 mb-10">
         @forelse ($courses as $course)
@@ -39,4 +39,4 @@
         {{ $courses->links() }}
     </div>
 
-</x-layout>
+</x-default-layout>

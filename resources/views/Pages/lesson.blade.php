@@ -1,4 +1,4 @@
-<x-layout :title="$lesson->title">
+<x-default-layout :title="$lesson->title">
 
     <div class="space-y-10 md:space-y-16 mx-6 md:mx-12 mt-24 mb-10">
         {{-- Début de la lesson --}}
@@ -19,4 +19,4 @@
         {{-- Fin de la lesson --}}
     </div>
 
-</x-layout>
+</x-default-layout>
