@@ -35,3 +35,5 @@ Route::get('/course/{course}', [CourseController::class, 'show'])->name('pages.c
 Route::get('/themes/{theme}', [CourseController::class, 'coursesByTheme'])->name('courses.byTheme');
 Route::get('/tag/{tag}', [CourseController::class, 'coursesByTag'])->name('courses.byTag');
 Route::get('/lesson/{lesson}', [LessonController::class, 'show'])->name('pages.lesson');
+
+Route::post('/{lesson}/comment', [LessonController::class, 'comment'])->name('lesson.comment');

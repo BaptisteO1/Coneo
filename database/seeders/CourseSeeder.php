@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\{Course, Theme, Lesson, Tag};
+use App\Models\{Course, Theme, Lesson, Tag, User};
 use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
@@ -13,6 +13,7 @@ class CourseSeeder extends Seeder
     public function run(): void
     {
         $themes = Theme::all();
+        $users = User::all();
             
         for ($i=0; $i < 20; $i++) { 
             $theme = $themes->random();
@@ -26,7 +27,9 @@ class CourseSeeder extends Seeder
             $course->tags()->attach($tags->random(rand(1, 3)));
 
             for ($j=1; $j < random_int(2,5); $j++) { 
-                Lesson::factory()->create([
+                Lesson::factory()
+                ->hasComments(5, fn () => ['user_id' => $users->random()])
+                ->create([
                     'order' => $j,
                     'course_id' => $course->id,
                 ]);
