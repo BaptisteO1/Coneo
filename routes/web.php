@@ -28,6 +28,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::patch('/home', [DashboardController::class, 'updatePassword']);
 
 Route::view('/', 'pages.home')->name('pages.home');
 

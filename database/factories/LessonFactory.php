@@ -23,14 +23,7 @@ class LessonFactory extends Factory
         $date = fake()->dateTimeBetween('-1 year');
 
         // Récupérer un cours aléatoire
-        $course = Course::inRandomOrder()->first();
-
-        // TODO faire en sorte qu'il y ai un ordre dans les lessons (sans doublon)
-        // Vérifier le nombre de leçons associées à ce cours
-        //$lessonCount = $course->lessons()->count();
-        // Limiter le nombre de leçons à 4
-        //$order = ($lessonCount % 4) + 1;
-        
+        $course = Course::inRandomOrder()->first();       
 
         return [
             'title' => $title,

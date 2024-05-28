@@ -1,4 +1,4 @@
-<x-auth-layout title="Connexion" :action="route('login')" submitMessage="Connexion">
+<x-auth-layout title="Connexion" :action="route('login')" submitMessage="Connexion" otherFormMessage='Pas encore de compte ? ' otherActionMessage='Inscrit-toi !' :otherAction="route('register')">
     <x-input name="email" label="Adresse e-mail" type="email" />
     <x-input name="password" label="Mot de passe" type="password" />
     <div class="flex items-center justify-between">
