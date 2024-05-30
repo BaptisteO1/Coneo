@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLessonController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\DashboardController;
@@ -29,6 +30,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::patch('/home', [DashboardController::class, 'updatePassword']);
+
+Route::resource('/admin/lessons', AdminLessonController::class)->except('show')->names('admin.lessons');
 
 Route::view('/', 'pages.home')->name('pages.home');
 
