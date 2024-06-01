@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('themes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('slug', 100)->unique();
+            $table->string('name', 40);
+            $table->string('slug', 40)->unique();
+            $table->string('thumbnail');
+            $table->string('excerpt', 100);
+            $table->text('description');
         });
     }
 

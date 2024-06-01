@@ -24,7 +24,7 @@ class CourseSeeder extends Seeder
 
             // Attach tags to the course
             $tags = Tag::where('theme_id', $theme->id)->get();
-            $course->tags()->attach($tags->random(rand(1, 3)));
+            $course->tags()->attach($tags->random(rand(0, 3)));
 
             for ($j=1; $j < random_int(2,5); $j++) { 
                 Lesson::factory()

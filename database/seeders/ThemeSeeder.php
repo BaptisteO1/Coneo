@@ -16,9 +16,13 @@ class ThemeSeeder extends Seeder
     {
         $themes = collect(['Logement', 'Emploi', 'Gestion Financière', 'Assurances', 'Impôts', 'Vie Quotidienne', 'Relations interpersonnelles', 'Bien-être', 'Scolarité',  'Aides']);
 
-        $themes->each(fn ($theme) => Theme::create([
-            'name' => $theme,
-            'slug' => Str::slug($theme),
-        ]));
+        
+        $themes->each(function ($theme) {
+            Theme::factory()->create([
+                'name' => $theme,
+                'slug' => Str::slug($theme),
+            ]);
+        });
+
     }
 }

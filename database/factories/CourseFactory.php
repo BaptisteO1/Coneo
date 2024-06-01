@@ -18,18 +18,18 @@ class CourseFactory extends Factory
      */
     public function definition(): array
     {   
-        $title = fake()->unique()->sentence();
-        $description = fake()->text();
+        $title = fake()->unique()->sentence(2);
+        $description = fake()->text(200);
         $date = fake()->dateTimeBetween('-1 year');
         // Sélectionner une catégorie existante
         $theme = Theme::inRandomOrder()->first();
 
         return [
-            'title' => $title,
+            'title' => Str::limit($title),
             'theme_id' => $theme->id,
             'slug' => Str::slug($title),
             'thumbnail' => fake()->imageUrl(),
-            'excerpt' => Str::limit($description, 100),
+            'excerpt' => Str::limit($description, 95),
             'description' => $description,
             'created_at' => $date,
             'updated_at' => $date,
