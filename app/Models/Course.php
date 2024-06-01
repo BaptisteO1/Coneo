@@ -17,6 +17,7 @@ class Course extends Model
     protected $with = [
         'theme',
         'tags',
+        'firstLesson',
     ];
 
     public function getRouteKeyName(): string

@@ -1,0 +1,23 @@
+deploy: public/build/manifest.json
+	powershell -Command "rsync -avz public/build Levillage:www/public"
+
+	powershell -Command "ssh Levillage 'cd C:\Users\Bapti\Documents\project-folder-git\Coneo; git pull origin main && make install'"
+
+install: vendor/autoload.php .env public/storage public/build/manifest.json
+	powershell -Command "php artisan cache:clear"
+	powershell -Command "php artisan migrate"
+
+.env:
+	powershell -Command "cp .env.example .env"
+	powershell -Command "php artisan key:generate"
+
+public/storage: 
+	powershell -Command "php artisan storage:link"
+
+vendor/autoload.php: composer.lock
+	powershell -Command "composer install"
+	powershell -Command "touch vendor/autoload.php"
+
+public/build/manifest.json: package.json
+	powershell -Command "npm install"
+	powershell -Command "npm run build"

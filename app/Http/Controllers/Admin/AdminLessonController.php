@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lesson;
+use App\Models\Tag;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 
 class AdminLessonController extends Controller
@@ -28,7 +30,10 @@ class AdminLessonController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.lessons.form', [
+            'theme' => Theme::orderBy('name')->get(),
+            'tags' => Tag::orderBy('name')->get(),
+        ]);
     }
 
     /**
