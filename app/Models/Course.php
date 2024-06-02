@@ -49,6 +49,11 @@ class Course extends Model
         }
     }
 
+    public function exists(): bool
+    {
+        return (bool) $this->id;
+    }
+
      /**
      * Get the first lesson of the course.
      */

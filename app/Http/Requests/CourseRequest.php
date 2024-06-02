@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CourseRequest extends FormRequest
 {
@@ -19,13 +21,13 @@ class CourseRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
         return [
             'title' => ['required', 'string', 'between:3,255'],
-            'slug' => ['required', 'string', 'between:3,255', 'unique:courses'],
+            'slug' => ['required', 'string', 'between:3,255', Rule::unique('courses')->ignore($this->course)],
             'description' => ['required', 'string', 'between:3,255'],
-            'thumbnail' => ['required', 'image'],
+            'thumbnail' => [Rule::requiredIf($request->isMethod('course')), 'image'],
             'theme_id' => ['required', 'integer', 'exists:themes,id'],
             'tag_ids' => ['array', 'exists:tags,id'],
         ];
