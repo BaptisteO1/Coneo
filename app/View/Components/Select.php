@@ -20,7 +20,7 @@ class Select extends Component
         public Collection $list,
         public ?string $id = null,
         public string $optionsValues = 'id',
-        public string $optionsTexts = 'name',
+        public string $optionsTexts = 'title',
         public mixed $value = null,
         public bool $multiple = false,
         public string $help = '',

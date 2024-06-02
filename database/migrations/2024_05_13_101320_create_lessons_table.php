@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('order');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();
+
+            $table->unique(['course_id', 'order']);
         });
     }
 

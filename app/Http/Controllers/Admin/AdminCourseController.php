@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\LessonRequest;
+use App\Http\Requests\CourseRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Lesson;
 use App\Models\Tag;
+use App\Models\Theme;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class AdminLessonController extends Controller
+class AdminCourseController extends Controller
 {
     public function __construct()
     {
@@ -22,8 +22,8 @@ class AdminLessonController extends Controller
      */
     public function index()
     {
-        return view('admin.lessons.index', [
-            'lessons' => Lesson::without('courses', 'tags')->latest()->get(),
+        return view('admin.courses.index', [
+            'courses' => Course::without('theme', 'tags')->latest()->get(),
         ]);
     }
 
@@ -32,8 +32,8 @@ class AdminLessonController extends Controller
      */
     public function create()
     {
-        return view('admin.lessons.form', [
-            'courses' => Course::orderBy('title')->get(),
+        return view('admin.courses.form', [
+            'themes' => Theme::orderBy('name')->get(),
             'tags' => Tag::orderBy('name')->get(),
         ]);
     }
@@ -41,25 +41,25 @@ class AdminLessonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LessonRequest $request)
+    public function store(CourseRequest $request)
     {
         $validated = $request->validated();
 
         $validated['thumbnail'] = $validated['thumbnail']->store('thumbnails');
-        $validated['excerpt'] = Str::limit($validated['content'], 150);
+        $validated['excerpt'] = Str::limit($validated['description'], 150);
 
         
 
-        $lesson = Lesson::create($validated);
-        $lesson->tags()->sync($validated['tag_ids'] ?? null);
+        $course = course::create($validated);
+        $course->tags()->sync($validated['tag_ids'] ?? null);
 
-        return redirect()->route('pages.lessons', ['lesson' => $lesson])->withStatus('lesson publié !');
+        return redirect()->route('pages.courses', ['course' => $course])->withStatus('course publié !');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Lesson $lesson)
+    public function show(course $course)
     {
         //
     }
@@ -67,7 +67,7 @@ class AdminLessonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lesson $lesson)
+    public function edit(course $course)
     {
         //
     }
@@ -75,7 +75,7 @@ class AdminLessonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Lesson $lesson)
+    public function update(Request $request, course $course)
     {
         //
     }
@@ -83,7 +83,7 @@ class AdminLessonController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lesson $lesson)
+    public function destroy(course $course)
     {
         //
     }

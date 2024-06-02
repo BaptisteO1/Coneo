@@ -1,6 +1,6 @@
 <x-default-layout title="Création d'une leçon">
     <div class="w-full flex justify-center">
-    <form action="{{ route('admin.lessons.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.courses.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
@@ -13,8 +13,8 @@
                     <x-textarea name="description" label="Description" row="3"></x-textarea>
                     <x-textarea name="content" label="Contenu du post" row="10"></x-textarea>
                     <x-input name="thumbnail" type="file" label="Image de couverture" />
-                    <x-select name="theme_id" label="Theme" :list="$theme" />
-                    <x-select name="tag_ids" label="Tags" :list="$tags" multiple />
+                    <x-select name="theme_id" label="Theme" :list="$themes" optionsTexts="name" />
+                    <x-select name="tag_ids" label="Tags" :list="$tags" multiple optionsTexts="name" />
                 </div>
             </div>
         </div>
