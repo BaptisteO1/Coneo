@@ -15,7 +15,7 @@
 
         <div class="mt-5 flex justify-center gap-10">
             @if($previousLesson)
-                <a href="{{ route('pages.lesson', ['lesson' => $previousLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-green-300">
+                <a href="{{ route('pages.lesson', ['lesson' => $previousLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-primary-green">
                     Leçon précédente
                 </a>
             @else
@@ -23,7 +23,7 @@
             @endif
             
             @if($nextLesson)
-                <a href="{{ route('pages.lesson', ['lesson' => $nextLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-green-300">
+                <a href="{{ route('pages.lesson', ['lesson' => $nextLesson->slug]) }}" class="py-2 px-6 md:px-8 rounded-full text-white bg-primary-green">
                     Leçon suivante
                 </a>
             @endif

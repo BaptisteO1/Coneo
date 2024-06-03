@@ -35,9 +35,20 @@ Route::resource('/admin/course', AdminCourseController::class)->except('show')->
 
 Route::view('/', 'pages.home')->name('pages.home');
 
+Route::view('/', 'pages.home')->name('pages.home');
+
+Route::view('/contact', 'pages.contact')->name('pages.contact');
+Route::view('/nos-offres', 'pages.offres')->name('pages.offres');
+
 Route::get('/course/{course}', [CourseController::class, 'show'])->name('pages.courses');
 Route::get('/themes/{theme}', [CourseController::class, 'coursesByTheme'])->name('courses.byTheme');
 Route::get('/tag/{tag}', [CourseController::class, 'coursesByTag'])->name('courses.byTag');
 Route::get('/lesson/{lesson}', [LessonController::class, 'show'])->name('pages.lesson');
 
 Route::post('/{lesson}/comment', [LessonController::class, 'comment'])->name('lesson.comment');
+
+// Méthode fallback() en dernière position
+Route::fallback(function() {
+    return view('404'); // la vue 404.blade.php
+ });
+ 

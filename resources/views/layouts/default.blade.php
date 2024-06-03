@@ -25,9 +25,12 @@
             </div>
         </div>
     @endif
-
+    
     {{-- Conteneur global --}}
-    {{$slot}}
+    <div class="flex flex-col justify-center container " >
+        {{$slot}}
+    </div>
+    
 
     <x-footer/>
 </body>

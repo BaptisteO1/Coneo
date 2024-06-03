@@ -23,7 +23,7 @@
                     <div class="space-y-6">
                         {{ $slot }}
                         <div class="flex flex-col items-center">
-                            <button type="submit" class="flex w-3/4 justify-center rounded-full bg-green-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-300/75 focus-visible:outline focus-visible:outline-indigo-600">{{ $submitMessage }}</button>
+                            <button type="submit" class="flex w-3/4 justify-center rounded-full bg-primary-green px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-green/75 focus-visible:outline focus-visible:outline-indigo-600">{{ $submitMessage }}</button>
                             <p>{{ $otherFormMessage }} <a class="decoration-solid" href="{{ $otherAction }}">{{ $otherActionMessage }} </a></p>
                         </div>
                     </div>

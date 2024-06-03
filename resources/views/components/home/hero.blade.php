@@ -4,7 +4,7 @@
         <h1 class="font-extrabold text-center md:text-start text-3xl md:text-5xl">L'apprentissage pour <br/> prendre son envole</h1>
         <p class="w-2/3">Découvrez notre plateforme d’apprentissage afin de prendre votre envole <br/> dans la vie active ! </p>
         <div class="flex gap-4 md:gap-6 font-medium pb-12">
-            <a class="py-2 px-6 md:px-8 rounded-full text-black bg-green-300" href="">S'inscrire</a>
+            <a class="py-2 px-6 md:px-8 rounded-full text-black bg-primary-green" href="">S'inscrire</a>
             <a class="py-2 px-6 md:px-8 border rounded-full transparent" href="">Connectez-vous</a>
         </div>
     </div>
